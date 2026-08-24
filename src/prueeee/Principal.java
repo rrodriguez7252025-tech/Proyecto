@@ -1,6 +1,9 @@
 package prueeee;
+
 import java.util.Scanner;
+
 public class Principal {
+
     public static void main(String[] args) {
         utilitarios util = new utilitarios();
         int[] pares = new int[5];
@@ -14,17 +17,29 @@ public class Principal {
         while (conta < 10) {
             System.out.println("escriba el dato: " + (conta + 1) + ": ");
             dato = leer.nextInt();
-            if (dato<0) {
+            if (dato < 0) {
                 System.out.println("dato incorrecto");
-            }else{
-                if (dato % 2 == 0) {
-                util.pares(pares, contaPar, dato);
-                contaPar++;
             } else {
-                util.impares(impares, contaImp, dato);
-                contaImp++;
-            }
-                conta++;
+                if (dato % 2 == 0) {
+                    if (contaPar < 5) {
+                        util.pares(pares, contaPar, dato);
+                        contaPar++;
+                        conta++;
+                    } else {
+                        System.out.println("ya existe cinco numeros pares");
+                    }
+
+                } else {
+                    if (contaImp < 5) {
+                        util.impares(impares, contaImp, dato);
+                        contaImp++;
+                        conta++;
+                    } else {
+                        System.out.println("ya existen 5 numeros impares");
+                    }
+
+                }
+
             }
         }
         util.imprimir(pares);

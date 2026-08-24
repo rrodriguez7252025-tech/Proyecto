@@ -1,9 +1,6 @@
 package prueeee;
-
 import java.util.Scanner;
-
 public class Principal {
-
     public static void main(String[] args) {
         utilitarios util = new utilitarios();
         int[] pares = new int[5];
@@ -17,20 +14,24 @@ public class Principal {
         while (conta < 10) {
             System.out.println("escriba el dato: " + (conta + 1) + ": ");
             dato = leer.nextInt();
-            if (dato % 2 == 0) {
+            if (dato<0) {
+                System.out.println("dato incorrecto");
+            }else{
+                if (dato % 2 == 0) {
                 util.pares(pares, contaPar, dato);
+                contaPar++;
             } else {
                 util.impares(impares, contaImp, dato);
+                contaImp++;
             }
-            conta++;
-
+                conta++;
+            }
         }
         util.imprimir(pares);
         util.imprimir(impares);
         System.out.println("valores mayor a Diez en pares son : " + util.contarMayorDiez(pares));
-        System.out.println("valores mayor a Diez en pares son : " + util.contarMayorDiez(impares));
-        System.out.println("valores menores a Cinco en pares son : " + util.contarMayorDiez(pares));
-        System.out.println("valores menores a Cinco en impares son : " + util.contarMayorDiez(impares));
+        System.out.println("valores mayor a Diez en impares son : " + util.contarMayorDiez(impares));
+        System.out.println("valores menores a Cinco en pares son : " + util.contarMenoresCinco(pares));
+        System.out.println("valores menores a Cinco en impares son : " + util.contarMenoresCinco(impares));
     }
-
 }
